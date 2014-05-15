@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{{ static_dir }}/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{{ static_dir }}/aloha/css/aloha.css" type="text/css" rel="stylesheet" />
+
+    <script src='{{ static_dir }}/swagger-ui/lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+    <script src='{{ static_dir }}/swagger-ui/lib/jquery.slideto.min.js' type='text/javascript'></script>
+    <script src='{{ static_dir }}/swagger-ui/lib/jquery.wiggle.min.js' type='text/javascript'></script>
+    <script src='{{ static_dir }}/swagger-ui/lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+    <script src="{{ static_dir }}/bootstrap/js/bootstrap.min.js"></script>
+	<script src="{{ static_dir }}/aloha/lib/require.js" type="text/javascript" ></script>
+
+	<script>
+		var Aloha = window.Aloha || ( window.Aloha = {} );
+		
+		Aloha.settings = {
+			locale: 'en',
+			plugins: {
+				format: {
+					config : [ 'b', 'i','u','del','sub','sup', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre'],
+				  	editables : {
+						heading1 	: [ 'b', 'i', 'u', 'del', 'sub', 'sup'  ],
+						heading2 	: [ 'b', 'i', 'u', 'del', 'sub', 'sup'  ],
+						heading3 	: [ 'b', 'i', 'u', 'del', 'sub', 'sup'  ]
+				  	}
+				}
+			},
+			sidebar: {
+				disabled: true
+			}
+		};
+	</script>
+
+	<script type="text/javascript" src="{{ static_dir }}/aloha/lib/aloha.js"
+				data-aloha-plugins="common/ui,
+									common/format,
+			                        common/table,
+			                        common/list,
+			                        common/link,
+			                        common/image,
+			                        common/highlighteditables,
+			                        common/block,
+			                        common/undo,
+			                        common/contenthandler,
+			                        common/paste,
+			                        common/commands,
+			                        common/abbr"></script>
+
+	<script type="text/javascript">
+	</script>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-signin">
+        <h2 class="form-signin-heading editable">Please sign in</h2>
+        <input type="text" class="input-block-level" placeholder="Email address">
+        <input type="password" class="input-block-level" placeholder="Password">
+        <input id="password-repeat" type="password" class="input-block-level" placeholder="Password again">
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+        <button id="sign-in" class="btn btn-large btn-primary" type="button">Sign in</button>
+        <button id="sign-up" class="btn btn-large btn-primary" type="button">Sign up</button>
+      </form>
+    </div> <!-- /container -->
+	<script>
+	$(document).ready(function() {
+		password_repeat = $("#password-repeat");
+		$(password_repeat).hide();
+	    $("#sign-up").click(function () {
+	    	$(password_repeat).show('highlight')
+	    	$("#sign-in").hide("fade");
+	    });
+	});
+		/*Aloha.ready(function() {
+			// mark the editable parts
+			$('.editable').aloha();
+		});*/
+
+	</script>
+  </body>
+</html>
